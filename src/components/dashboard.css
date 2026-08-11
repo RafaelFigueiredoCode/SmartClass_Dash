@@ -1,0 +1,134 @@
+.dashboard {
+    min-height: 100vh;
+    background: #0b1220;
+    padding: 32px 40px;
+    font-family: "Inter", system-ui, sans-serif;
+    color: #f1f5f9;
+  }
+  
+  .dashboard__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  
+  .dashboard__title {
+    font-family: "JetBrains Mono", "Space Mono", monospace;
+    font-size: 26px;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  
+  .dashboard__subtitle {
+    margin: 4px 0 0;
+    color: #64748b;
+    font-size: 13px;
+  }
+  
+  .dashboard__status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .dashboard__pulse {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #475569;
+  }
+  
+  .dashboard__pulse--live {
+    background: #4ade80;
+    box-shadow: 0 0 8px #4ade80;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  
+  .dashboard__status-text {
+    font-size: 13px;
+    color: #94a3b8;
+    min-width: 90px;
+  }
+  
+  .dashboard__button {
+    background: #ffb454;
+    color: #0b1220;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  
+  .dashboard__button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .dashboard__button:hover:not(:disabled) {
+    background: #ffc46e;
+  }
+  
+  .dashboard__banner {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard__banner--warn {
+    background: #2a1f0f;
+    border: 1px solid #92661f;
+    color: #ffb454;
+  }
+  
+  .dashboard__banner--error {
+    background: #2a1414;
+    border: 1px solid #7f2a2a;
+    color: #f87171;
+  }
+  
+  .dashboard__empty {
+    border: 1px dashed #1f2b45;
+    border-radius: 10px;
+    padding: 60px 20px;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+  }
+  
+  .dashboard__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .dashboard__chart-panel {
+    background: #121a2b;
+    border: 1px solid #1f2b45;
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  
+  .dashboard__chart-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 12px;
+  }
+  
+  .dashboard__chart-updated {
+    font-family: "JetBrains Mono", "Space Mono", monospace;
+    color: #64748b;
+  }
