@@ -11,31 +11,39 @@ código no ArduinoIDE:
 
 #define DHTPIN 7
 #define DHTTYPE DHT22
+#define LDRPIN A0
 
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
-  Serial.begin(9600); // precisa bater com o baudRate usado no connect() do React
+  Serial.begin(9600);
   dht.begin();
-  delay(2000); // aguarda o sensor inicializar
+  delay(2000);
 }
 
 void loop() {
   float t = dht.readTemperature();
   float h = dht.readHumidity();
 
-  // se a leitura falhar, simplesmente pula esse ciclo sem imprimir nada
-  // (uma linha sem "chave:valor" seria ignorada pelo dashboard mesmo assim,
-  // mas assim evitamos mandar lixo pela serial)
+  // Leitura do LDR: 0 a 1023
+  int luz = analogRead(LDRPIN);
+
+  // Se o DHT22 falhar, não envia a leitura desse ciclo
   if (isnan(t) || isnan(h)) {
     delay(2000);
     return;
   }
 
+  // Formato esperado pelo dashboard:
+  // temp:25.3,umid:60.2,luz:512
   Serial.print("temp:");
   Serial.print(t);
+
   Serial.print(",umid:");
-  Serial.println(h); // println no último valor, pra fechar a linha
+  Serial.print(h);
+
+  Serial.print(",luz:");
+  Serial.println(luz);
 
   delay(2000);
 }
