@@ -6,7 +6,7 @@ código no ArduinoIDE:
 
 // Sketch com DHT22 ajustado para o formato esperado pelo dashboard:
 // uma linha só, no formato chave:valor,chave:valor
-
+// Biblioteca do Arduino IDE: DHT sensor library by Adafruit
 #include <DHT.h>
 
 #define DHTPIN 7
